@@ -12,6 +12,10 @@ public class Address {
         this.zipcode = zipcode;
     }
 
+    public void init() {
+        System.out.println("Bean created:" + this);
+    }
+
     public String toString() {
         return "Address{" +
                 "street='" + street + '\'' +
