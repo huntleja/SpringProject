@@ -4,16 +4,31 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="person" class="com.caveofprogramming.spring.test.Person" scope="singleton" init-method="onCreate"
+    <bean id="person" class="com.caveofprogramming.spring.test.Person" scope="singleton" factory-method="getInstance"
+          init-method="onCreate"
           destroy-method="onDestroy">
-        <constructor-arg value="777" name="id" type="int"/>
-        <constructor-arg value="Mary" name="name" type="java.lang.String"/>
+        <constructor-arg name="id" value="1234"/>
+        <constructor-arg name="name" value="Angus"/>
         <property name="taxId" value="321"/>
         <property name="address" ref="address"/>
+    </bean>
+
+    <bean id="person2" class="com.caveofprogramming.spring.test.Person" scope="singleton" factory-bean="personfactory"
+          factory-method="createPerson" init-method="onCreate"
+          destroy-method="onDestroy">
+        <constructor-arg name="id" value="4321"/>
+        <constructor-arg name="name" value="Mike"/>
+        <property name="taxId" value="321"/>
+        <property name="address" ref="address"/>
+    </bean>
+
+    <bean id="personfactory" class="com.caveofprogramming.spring.test.PersonFactory">
+
     </bean>
     <bean id="address" class="com.caveofprogramming.spring.test.Address">
         <constructor-arg name="street" value="1 Church Lane"/>
         <constructor-arg name="zipcode" value="9876"/>
     </bean>
+
 </beans>
 

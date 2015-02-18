@@ -18,6 +18,11 @@ public class Person {
         this.name = name;
     }
 
+    public static Person getInstance(int id, String name) {
+        System.out.println("Proof");
+        return new Person(id, name);
+    }
+
     public void speak() {
         System.out.println("Hello I am a person");
     }
