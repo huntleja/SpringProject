@@ -13,12 +13,11 @@ public class App {
 
 
         Person person = (Person) context.getBean("person");
-        person.speak();
+        Person person2 = (Person) context.getBean("person");
 
-        Address address = (Address) context.getBean("address");
-        System.out.println(address);
+        person.setTaxId(666);
 
-        System.out.println(person);
+        System.out.println(person2);
 
         ((ClassPathXmlApplicationContext) context).close();
 

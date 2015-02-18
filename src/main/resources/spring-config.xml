@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.caveofprogramming.spring.test.Person">
+    <bean id="person" class="com.caveofprogramming.spring.test.Person" scope="prototype">
         <constructor-arg value="777" name="id" type="int"/>
         <constructor-arg value="Mary" name="name" type="java.lang.String"/>
         <property name="taxId" value="321"/>
