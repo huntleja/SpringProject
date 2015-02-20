@@ -19,7 +19,8 @@ public class Robot {
     }
 
     @Autowired
-    public void setSpeech(@Value("#{randomText.getText()}") String speech) {
+    //"#{T(Math).sqrt(25)^2 ge 0.8 ? 'Hell yea': 'hell nah'}"
+    public void setSpeech(@Value("#{new java.util.Date().toString()}") String speech) {
         this.speech = speech;
     }
 

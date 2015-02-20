@@ -15,7 +15,6 @@ public class RandomText {
 
     public String getText() {
         Random random = new Random();
-
         return texts[random.nextInt(texts.length)];
     }
 
