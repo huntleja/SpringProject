@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-init-method="init" default-destroy-method="destroy">
+       default-autowire="byType">
 
-    <bean id="person" class="com.caveofprogramming.spring.test.Person" scope="singleton" factory-method="getInstance"
-          init-method="onCreate"
-          destroy-method="onDestroy">
-        <constructor-arg name="id" value="1234"/>
-        <constructor-arg name="name" value="Angus"/>
-        <property name="taxId" value="321"/>
-        <property name="address" ref="address"/>
+
+    <bean id="logger" class="com.caveofprogramming.spring.test.Logger">
+
     </bean>
 
-    <bean id="person2" class="com.caveofprogramming.spring.test.Person" scope="singleton" factory-bean="personfactory"
-          factory-method="createPerson" init-method="onCreate"
-          destroy-method="onDestroy">
-        <constructor-arg name="id" value="4321"/>
-        <constructor-arg name="name" value="Mike"/>
-        <property name="taxId" value="321"/>
-        <property name="address" ref="address"/>
+    <bean id="consoleWriter"
+          class="com.caveofprogramming.spring.test.ConsoleWriter"
+          primary="true">
     </bean>
 
-    <bean id="personfactory" class="com.caveofprogramming.spring.test.PersonFactory">
+    <bean id="panda" class="com.caveofprogramming.spring.test.ConsoleWriter"
+          autowire-candidate="false">
     </bean>
 
-    <bean id="address" class="com.caveofprogramming.spring.test.Address">
-        <constructor-arg name="street" value="1 Church Lane"/>
-        <constructor-arg name="zipcode" value="9876"/>
+    <bean id="fileWriter"
+          class="com.caveofprogramming.spring.test.FileWriter">
     </bean>
 
-    <bean id="address2" class="com.caveofprogramming.spring.test.Address" p:street="23 Vinyard Lane" p:zipcode="29709">
+    <bean id="squirrel"
+          class="com.caveofprogramming.spring.test.FileWriter"
+          autowire-candidate="false">
     </bean>
 
 </beans>
-
