@@ -13,6 +13,7 @@ public class App {
 
         logger.writeConsole("Hello there");
         logger.writeFile("Hi again");
+        logger.speakLogger();
 
         ((ClassPathXmlApplicationContext) context).close();
     }
